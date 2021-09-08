@@ -3,14 +3,18 @@ export const USER = 'USER';
 export function getUser(){
     const packagedStorage = localStorage.getItem(USER);
 
-    return JSON.parse(packagedStorage);
+    if (!packagedStorage) return [];
+
+    const user = JSON.parse(packagedStorage);
+    
+    return user;
 }
 
 
-export function setUser(userObj){
-    const packagedUserObj = JSON.stringify(userObj);
+export function setUser(arr){
+    const packagedUserArr = JSON.stringify(arr);
 
-    localStorage.setItem(USER, packagedUserObj);
+    localStorage.setItem(USER, packagedUserArr);
 }
 
 
