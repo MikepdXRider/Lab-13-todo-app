@@ -10,7 +10,7 @@
 9) Consider what features _depend_ on what other features. Use this dependency logic to figure out what order to complete tasks.
 
 
-Build for one user. If enough time exists, move towards multiple users. 
+![](./assets/landpage.JPG)
 
 
 ## Signup
