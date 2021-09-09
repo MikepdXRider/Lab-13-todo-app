@@ -1,5 +1,4 @@
 import { completeTodoInStorage } from '../local-storage-utils.js';
-import { getUserName } from '../utils.js';
 
 export function resetAndRenderTodoElements(todoArr, elDom){
     elDom.textContent = '';
@@ -15,7 +14,6 @@ export function resetAndRenderTodoElements(todoArr, elDom){
         
         elLi.addEventListener('click', () => {
             elLi.style.textDecoration = 'line-through';
-            const todoID = elLi.value;
             completeTodoInStorage(item.id);
         });
         
