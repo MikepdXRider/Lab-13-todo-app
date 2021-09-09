@@ -133,3 +133,11 @@ input{
     height: 50%;
     justify-content: space-around;
 }
+
+
+@media screen and (max-width: 500px) {
+    .content-cont{
+        min-height: 400px;
+        min-width: 99%;
+    }
+}
