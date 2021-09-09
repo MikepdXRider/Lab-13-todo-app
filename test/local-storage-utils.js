@@ -2,7 +2,7 @@
 // import { example } from '../example.js';
 
 import { getUsers, getUserTodos, setUsers, setUserTodos, USER } from '../local-storage-utils.js';
-import { doesUserExist } from '../utils.js';
+import { findUser } from '../utils.js';
 
 const test = QUnit.test;
 
@@ -31,6 +31,8 @@ test('call getUsers with no existing storage, expect an array.', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
+
+
 test('call getUsers with existing storage, expect storage.', (expect) => {
     localStorage.removeItem(USER);
 
@@ -42,6 +44,7 @@ test('call getUsers with existing storage, expect storage.', (expect) => {
 
     expect.deepEqual(actual, expected);
 });
+
 
 
 test('call setUsers, expect an empty array in localStorage', (expect) => {
@@ -61,33 +64,36 @@ test('call setUsers, expect an empty array in localStorage', (expect) => {
 });
 
 
-test('call doesUserExist with no existing storage, expect false.', (expect) => {
+
+test('call findUser with no existing storage, expect false.', (expect) => {
     localStorage.removeItem(USER);
 
     const expected = false;
    
-    const actual = doesUserExist('username');
+    const actual = findUser('username');
 
     expect.equal(actual, expected);
 });
 
 
-test('call doesUserExist with existing user in storage, expect true.', (expect) => {
+
+test('call findUser with existing user in storage, expect user obj.', (expect) => {
     localStorage.removeItem(USER);
     
     const StorageArr = [{ username: 'username' }];
 
     setUsers(StorageArr);
     
-    const expected = true;
+    const expected = { username: 'username' };
    
-    const actual = doesUserExist('username');
+    const actual = findUser('username');
 
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
 
+
 // Specific to login and sign up pages.
-test('call doesUserExist with existing different user in storage, expect false.', (expect) => {
+test('call findUser with existing different user in storage, expect false.', (expect) => {
     localStorage.removeItem(USER);
     
     const StorageArr = [{ username: 'test-name' }];
@@ -96,10 +102,11 @@ test('call doesUserExist with existing different user in storage, expect false.'
     
     const expected = false;
    
-    const actual = doesUserExist('username');
+    const actual = findUser('username');
 
     expect.equal(actual, expected);
 });
+
 
 test('call getUserTodos with existing same user in storage, expect an array.', (expect) => {
     localStorage.removeItem(USER);

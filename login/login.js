@@ -31,8 +31,6 @@ elForm.addEventListener('submit', (e) => {
         alert('Incorrect password, please try again.');
         return;
     }
-    
-    // debugger;
 
     window.location = `../todos/index.html?username=${userName}`;
 });
