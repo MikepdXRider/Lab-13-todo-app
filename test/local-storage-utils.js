@@ -1,7 +1,7 @@
 // IMPORT MODULES under test here:
 // import { example } from '../example.js';
 
-import { getUser, setUser, USER } from '../local-storage-utils.js';
+import { getUsers, getUserTodos, setUsers, setUserTodos, USER } from '../local-storage-utils.js';
 import { doesUserExist } from '../utils.js';
 
 const test = QUnit.test;
@@ -21,21 +21,37 @@ const test = QUnit.test;
 // });
 
 
-test('call getUser with no existing storage, expect an array.', (expect) => {
+test('call getUsers with no existing storage, expect an array.', (expect) => {
+    localStorage.removeItem(USER);
+
     const expected = [];
    
-    const actual = getUser();
+    const actual = getUsers();
+
+    expect.deepEqual(actual, expected);
+});
+
+test('call getUsers with existing storage, expect storage.', (expect) => {
+    localStorage.removeItem(USER);
+
+    const expected = [{ username: 'mellow' }];
+
+    setUsers(expected);
+   
+    const actual = getUsers();
 
     expect.deepEqual(actual, expected);
 });
 
 
-test('call setUser, expect an empty array in localStorage', (expect) => {
+test('call setUsers, expect an empty array in localStorage', (expect) => {
+    localStorage.removeItem(USER);
+    
     const expected = [];
     
-    const user = getUser();
+    const user = getUsers();
     
-    setUser(user);
+    setUsers(user);
     
     const storage = localStorage.getItem(USER);
     
@@ -46,6 +62,8 @@ test('call setUser, expect an empty array in localStorage', (expect) => {
 
 
 test('call doesUserExist with no existing storage, expect false.', (expect) => {
+    localStorage.removeItem(USER);
+
     const expected = false;
    
     const actual = doesUserExist('username');
@@ -54,16 +72,67 @@ test('call doesUserExist with no existing storage, expect false.', (expect) => {
 });
 
 
-test('call doesUserExist with existing storage, expect true.', (expect) => {
+test('call doesUserExist with existing user in storage, expect true.', (expect) => {
+    localStorage.removeItem(USER);
+    
     const StorageArr = [{ username: 'username' }];
 
-    setUser(StorageArr);
+    setUsers(StorageArr);
     
     const expected = true;
    
     const actual = doesUserExist('username');
 
     expect.equal(actual, expected);
+});
+
+// Specific to login and sign up pages.
+test('call doesUserExist with existing different user in storage, expect false.', (expect) => {
+    localStorage.removeItem(USER);
+    
+    const StorageArr = [{ username: 'test-name' }];
+
+    setUsers(StorageArr);
+    
+    const expected = false;
+   
+    const actual = doesUserExist('username');
+
+    expect.equal(actual, expected);
+});
+
+test('call getUserTodos with existing same user in storage, expect an array.', (expect) => {
+    localStorage.removeItem(USER);
+
+    const users = getUsers();
+
+    const userObj = { username: 'mellow', todos: [{ description: 'todo' }] };
+
+    users.push(userObj);
+
+    setUsers(users);
+    
+    const expected = [{ description: 'todo' }];
+   
+    const actual = getUserTodos('mellow');
+
+    expect.deepEqual(actual, expected);
+});
+
+test('call setUserTodos with existing same user in storage, expect a new object in local storage.', (expect) => {
+    localStorage.removeItem(USER);
+    
+    const beforeObj = [{ username: 'mellow', todos: [{ description: 'todo' }] }];
+    
+    setUsers(beforeObj);
+
+    setUserTodos('mellow', { description: 'another todo' });
+    
+    const expected = [{ description: 'todo' }, { description: 'another todo' }];
+   
+    const actual = getUserTodos('mellow');
+
+    expect.deepEqual(actual, expected);
 });
 
 

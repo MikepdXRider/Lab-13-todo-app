@@ -1,6 +1,6 @@
 // import functions and grab DOM elements
 
-import { getUser, setUser } from './local-storage-utils.js';
+import { getUsers, setUsers } from './local-storage-utils.js';
 import { doesUserExist } from './utils.js';
 
 // initialize global state
@@ -35,11 +35,11 @@ elForm.addEventListener('submit', (e) => {
         todos: []
     };
 
-    const user = getUser();
+    const user = getUsers();
 
     user.push(newUserObj);
 
-    setUser(user);
+    setUsers(user);
 
-    // window.location = `./todos/index.html?username=$s{userName}`;
+    window.location = `./todos/index.html?username=${userName}`;
 });
