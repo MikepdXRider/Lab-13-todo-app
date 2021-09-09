@@ -55,6 +55,7 @@ a, button{
     color: var(--main-bg-color);
     border: 3px solid var(--white-text-color);
     background-color: var(--button-bg-color);
+    font-size: 1rem;
     border-radius: 12%;
     width: 40%;
     text-decoration: none;
