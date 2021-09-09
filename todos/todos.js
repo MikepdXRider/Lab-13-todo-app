@@ -22,10 +22,12 @@ elForm.addEventListener('submit', (e) => {
     const formData = new FormData(elForm);
     
     const description = formData.get('description');
-    
+    console.log(username);
     addTodoToStorage(description, username);
     
-    resetAndRenderTodoElements(userTodosArr);
+    const userTodosArr = getUserTodos(username);
+    
+    resetAndRenderTodoElements(userTodosArr, elUl);
     
 });
 

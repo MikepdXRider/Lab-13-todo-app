@@ -1,3 +1,5 @@
+import { getUserName } from "./utils.js";
+
 export const USER = 'USER';
 
 // Tested
@@ -31,7 +33,7 @@ export function getUserTodos(userName){
     
 export function setUserTodos(userName, todoArr){
     const users = getUsers();
-    console.log('users...', typeof users);
+    // console.log('users...', typeof users);
     for (let user of users){
 
         if (user.username === userName){
@@ -54,17 +56,21 @@ export function addTodoToStorage(formMessage, username){
     const todosArr = getUserTodos(username);
     
     todosArr.push(newTodoObj);
-    console.log(todosArr);
     setUserTodos(username, todosArr);
 }
 
-
-export function completeTodoInStorage(id, username){
+// isn't working
+export function completeTodoInStorage(todoId){
+    const username = getUserName();
+    
     const todosArr = getUserTodos(username);
-
-    const currentTodo = todosArr.find(item => item.id === id);
-
-    currentTodo.completed = true;
+    // console.log(todosArr);
+    for (let todo of todosArr){
+        if (todo.id === todoId){
+            todo.completed = true;
+        }
+    }
+    setUserTodos(username, todosArr);
 }
 
 

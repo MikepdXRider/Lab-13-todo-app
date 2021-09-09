@@ -126,7 +126,13 @@ test('call setUserTodos with existing same user in storage, expect a new object 
     
     setUsers(beforeObj);
 
-    setUserTodos('mellow', { description: 'another todo' });
+    const currentTodo = getUserTodos('mellow');
+
+    const newTodoObj = { description: 'another todo' };
+
+    currentTodo.push(newTodoObj);
+
+    setUserTodos('mellow', currentTodo);
     
     const expected = [{ description: 'todo' }, { description: 'another todo' }];
    
