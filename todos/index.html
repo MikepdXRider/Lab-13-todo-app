@@ -8,30 +8,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="../styles/home.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./todos.css">
+    <title>To-dos</title>
 </head>
 
 <body>
     <header>
         <div class="gutter-right logo">
-            <img src="assets/big-logo.png" />
+            <img src="../assets/big-logo.png" />
         </div>
     </header>
     <main>
         <section class="main-section">
-            <h1>Landing Page</h1>
-            <div class="links-cont">
-                <a href="./sign-up/">Sign Up</a>
-                <a href="./login/">Login</a>
+            <div class="ul-cont">
+                <ul id="li-parent">
+                    <!-- Render list here -->
+                </ul>
             </div>
+        </section>
+        <section class="aside-section">
+            <aside class="aside">
+                <form id="add-todo">
+                        <p>Description</p>
+                        <input type="text" name="description" required >
+                        <input type="submit">
+                </form>
+            </aside>
         </section>
     </main>
     <footer>
         <div class="copy gutter-right">&copy; 2020 Alchemy Code Lab</div>
     </footer>
 
-    <script type="module" src="./sign-up.js"></script>
+    <script type="module" src="./todos.js"></script>
 </body>
 
 </html>
