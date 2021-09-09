@@ -2,6 +2,7 @@ import { getUserName } from './utils.js';
 
 export const USER = 'USER';
 
+
 // Tested
 export function getUsers(){
     const packagedStorage = localStorage.getItem(USER);
@@ -13,6 +14,8 @@ export function getUsers(){
     return user;
 }
 
+
+
 // Tested
 export function setUsers(arr){
     const packagedUserArr = JSON.stringify(arr);
@@ -20,27 +23,26 @@ export function setUsers(arr){
     localStorage.setItem(USER, packagedUserArr);
 }
 
-
+//Tested
 export function getUserTodos(userName){
     const users = getUsers();
 
     for (let user of users){
         if (user.username === userName) return user.todos;  
     }
-
 }
     
-    
+
+// Tested
 export function setUserTodos(userName, todoArr){
     const users = getUsers();
-    // console.log('users...', typeof users);
-    for (let user of users){
 
+    for (let user of users){
         if (user.username === userName){
             user.todos = todoArr;
         }
-
     }
+
     setUsers(users);
 }
 
@@ -56,20 +58,22 @@ export function addTodoToStorage(formMessage, username){
     const todosArr = getUserTodos(username);
     
     todosArr.push(newTodoObj);
+
     setUserTodos(username, todosArr);
 }
 
-// isn't working
+
 export function completeTodoInStorage(todoId){
     const username = getUserName();
     
     const todosArr = getUserTodos(username);
-    // console.log(todosArr);
+    
     for (let todo of todosArr){
         if (todo.id === todoId){
             todo.completed = true;
         }
     }
+    
     setUserTodos(username, todosArr);
 }
 

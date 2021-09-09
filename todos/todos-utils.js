@@ -4,7 +4,6 @@ export function resetAndRenderTodoElements(todoArr, elDom){
     elDom.textContent = '';
 
     todoArr.forEach(item => {
-        // console.log(item);
 
         const elLi = document.createElement('li');
         

@@ -1,7 +1,7 @@
 // import functions and grab DOM elements
 
-import { getUsers, setUsers } from './local-storage-utils.js';
-import { doesUserExist } from './utils.js';
+import { getUsers, setUsers } from '../local-storage-utils.js';
+import { findUser } from '../utils.js';
 
 // initialize global state
 
@@ -19,8 +19,8 @@ elForm.addEventListener('submit', (e) => {
 
     const userName = formData.get('name');
 
-    const userExists = doesUserExist(userName);
-
+    const userExists = findUser(userName);
+    
     if (userExists){
         alert('Username already exists, please log in or choose another Username.');
         return;
@@ -41,5 +41,5 @@ elForm.addEventListener('submit', (e) => {
 
     setUsers(user);
 
-    window.location = `./todos/index.html?username=${userName}`;
+    window.location = `../todos/index.html?username=${userName}`;
 });
