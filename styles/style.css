@@ -4,7 +4,8 @@
 
 :root{
     --main-bg-color: rgb(26,26,26);
-    --content-cont-bg-color: rgb(57,57,57);
+    --content-cont-bg-color: rgba(57,57,57);
+    --button-bg-color: rgba(80,80,80);
     --white-text-color: rgb(255,255,255);
     --brand-font: 'Pacifico', cursive;
     --tagline-font: 'Abril Fatface';
@@ -22,15 +23,15 @@ main{
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(7, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(20, 1fr);
 }
 
 .content-cont{
     background-color: var(--content-cont-bg-color);
     border-radius: 15%;
-    grid-column: 2 / 6;
-    grid-row: 3 / 6;
+    grid-column: 2 / 10;
+    grid-row: 4 / 14;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -39,7 +40,7 @@ main{
 .brand-title{
    font-family: var(--brand-font);
    color: var(--white-text-color);
-   font-size: 2.5rem;
+   font-size: 4rem;
    text-align: center;
 }
 
@@ -48,17 +49,17 @@ main{
     color: var(--white-text-color);
     text-align: center;
     font-weight: lighter;
-    font-size: 0.85rem
 }
 
 a, button{
     color: var(--main-bg-color);
     border: 3px solid var(--white-text-color);
-    border-radius: 15%;
-    width: 50%;
+    background-color: var(--button-bg-color);
+    border-radius: 12%;
+    width: 40%;
     text-decoration: none;
     text-align: center;
-    padding: 5px;
+    padding: 10px;
     margin: auto;
     font-family: var(--CTA);
 }
