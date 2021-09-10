@@ -15,11 +15,15 @@ export function resetAndRenderTodoElements(todoArr, elDom){
             elLi.addEventListener('click', () => {
                 completeTodoInStorage(item.id);
                 elLi.style.textDecoration = 'line-through';
-                elLi.style.borderColor = 'red';
+                elLi.style.borderColor = 'rgba(128, 128, 128, 0.30)';
+                elLi.style.backgroundColor = 'rgba(167, 165, 165, 0.20)';
+                elLi.style.color = 'rgba(167, 165, 165, 0.20)';
             });
         } else { 
             elLi.style.textDecoration = 'line-through';
-            elLi.style.borderColor = 'red';
+            elLi.style.borderColor = 'rgba(128, 128, 128, 0.30)';
+            elLi.style.backgroundColor = 'rgba(167, 165, 165, 0.20)';
+            elLi.style.color = 'rgba(167, 165, 165, 0.20)';
         }
         
         elDom.append(elLi); 
