@@ -57,7 +57,7 @@ export function addTodoToStorage(formMessage, username){
 
     const todosArr = getUserTodos(username);
     
-    todosArr.push(newTodoObj);
+    todosArr.unshift(newTodoObj);
 
     setUserTodos(username, todosArr);
 }

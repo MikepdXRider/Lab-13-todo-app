@@ -10,11 +10,17 @@ export function resetAndRenderTodoElements(todoArr, elDom){
         elLi.textContent = item.description;
         
         elLi.setAttribute('value', item.id);
-        
-        elLi.addEventListener('click', () => {
+
+        if (item.completed === false){
+            elLi.addEventListener('click', () => {
+                completeTodoInStorage(item.id);
+                elLi.style.textDecoration = 'line-through';
+                elLi.style.borderColor = 'red';
+            });
+        } else { 
             elLi.style.textDecoration = 'line-through';
-            completeTodoInStorage(item.id);
-        });
+            elLi.style.borderColor = 'red';
+        }
         
         elDom.append(elLi); 
     });        
