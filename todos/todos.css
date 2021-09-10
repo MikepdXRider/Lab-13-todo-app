@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+:root{
+    --main-bg-color: rgb(26,26,26);
+    --content-cont-bg-color: rgba(57,57,57);
+    --button-bg-color: rgba(80,80,80);
+    --white-text-color: rgb(255,255,255);
+    --CTA-color: rgb(117,171,248);
+    --box-shadow-color: rgb(239,214,9);
+    --brand-font: 'Pacifico', cursive;
+    --tagline-font: 'Abril Fatface';
+    --CTA-font: 'Fredoka One', cursive;
+}
+
+.content-cont{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+ul{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    max-height: 350px;
+    width: 95%;
+    border-radius: 3%;
+    background-color: rgba(80, 80, 80, 0.39);
+    position: relative;
+    left: 5px;
+    overflow: auto;
+}
+
+ul::-webkit-scrollbar{
+    background-color: var(--button-bg-color);
+    width: 3px;
+}
+
+ul::-webkit-scrollbar-thumb{
+    background-color: var(--main-bg-color);
+}
+
+li{
+    border: 2px solid var(--CTA-color);
+    min-height: 3vh;
+    width: 100%;
+    text-align: center;
+    border-radius: 5%;
+    background-color: var(--white-text-color);
+    font-family: sans-serif;
+    overflow: grow;
+    vertical-align: middle;;
+}
+
+li:hover{
+    border: var(--box-shadow-color);
+    cursor: pointer;
+}
+
+article{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    height: 100%;
+}
+
+form{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+button{
+    position: relative;
+    top: 25px;
+}
+
+.ul-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
