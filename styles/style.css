@@ -28,7 +28,7 @@ main{
 
 .content-cont{
     background-color: var(--content-cont-bg-color);
-    border-radius: 15%;
+    border-radius: 10%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -50,6 +50,10 @@ main{
     color: var(--white-text-color);
     text-align: center;
     font-weight: lighter;
+    position: relative;
+    bottom: 22px;
+    left: px;
+    font-size: 0.99rem;
 }
 
 a, button{
@@ -59,6 +63,7 @@ a, button{
     font-size: 1rem;
     border-radius: 12%;
     width: 40%;
+    min-width: 75px;
     max-width: 125px;
     min-height: 50px;
     text-decoration: none;
@@ -68,7 +73,7 @@ a, button{
     margin-left: auto;
     font-family: var(--CTA-font);
     transition: animation 0.25s ease-in-out;
-    animation: attention 10s infinite;
+    animation: attention 8s infinite;
 }
 
 a:hover, button:hover{
@@ -107,7 +112,7 @@ a:hover, button:hover{
     }
 }
 
-label p{
+label p, form p{
     color: var(--CTA-color);
     font-family: var(--CTA-font);
 }
@@ -121,9 +126,14 @@ label p{
 }
 
 input{
-    border-radius: 10%;
+    border-radius: 5%;
     min-height: 25px;
     font-family: var(--tagline-font);
+    -webkit-appearance: none;
+    appearance: none;
+    border: var(--main-bg-color) 4px solid;
+    min-height: 30px;
+    text-align: center;
 }
 
 .links-cont{
