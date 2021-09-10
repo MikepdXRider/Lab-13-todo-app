@@ -21,7 +21,6 @@
 ul{
     max-height: 300px;
     width: 95%;
-    /* background-color: rgba(80, 80, 80, 0.39); */
     overflow: auto;
 }
 
@@ -37,7 +36,7 @@ ul::-webkit-scrollbar-thumb{
 li{
     border: 2px solid rgba(128, 128, 128, 0.507);
     min-height: 4vh;
-    width: 100%;
+    width: 90%;
     text-align: center;
     border-radius: 5%;
     background-color: rgba(167, 165, 165, 0.294);
@@ -46,6 +45,10 @@ li{
     vertical-align: middle;;
     margin-top: 5px;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 5px 5px var(--main-bg-color);
 }
 
 li:hover{
@@ -53,6 +56,7 @@ li:hover{
     cursor: pointer;
     border: 2px solid var(--CTA-color);
     background-color: rgba(167, 165, 165, 0.404);
+    /* box-shadow: 10px 5px 5px var(--main-bg-color); */
 }
 
 article{
